@@ -1,0 +1,12 @@
+* {
+    font-family: "ZedMono Nerd Font";
+    font-size: 13px;
+}
+window#waybar {
+    background: rgba(26, 27, 38, 0.75);
+    color: #c0caf5;
+}
+#backlight {
+    padding: 0 10px;
+    min-width: 60px;
+}

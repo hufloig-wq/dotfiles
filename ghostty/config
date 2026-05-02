@@ -3,4 +3,7 @@ cursor-opacity = 1
 background-opacity = 0.97
 window-padding-x = 2
 keybind = shift+enter=text:\n
+command = /bin/zsh -c "fastfetch; exec zsh"
+confirm-close-surface = false
+font-size = 9
 

@@ -62,3 +62,7 @@ alias kveinte="kubectl config use-context do-nyc1-veinte-001"
 alias kbeekprod="kubectl config use-context gke_beek-production_us-west1-a_beek-production"
 alias kmusastaging="kubectl config use-context gke_musa-staging_us-west1_musa-staging"
 alias kmusaprod="kubectl config use-context gke_musa-production_us-west1_musa-production"
+
+# yt-dlb
+alias yta="yt-dlp -x --audio-format mp3 -o ~/Music/%(title)s.%(ext)s"
+alias ytv="yt-dlp"

@@ -12,3 +12,9 @@ fi
 
 # Load aliases
 source "$CONFIG_PATH/zsh/zshrc.alias"
+
+# Load autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Load command colors
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

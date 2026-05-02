@@ -1,0 +1,9 @@
+# 🎥 Videos → carpeta Videos
+-o ~/Vídeos/%(title)s.%(ext)s
+
+# Mejor calidad de video y audio
+--format bestvideo+bestaudio
+--merge-output-format mp4
+
+# Paths
+--paths "home:~/Vídeos" "temp:~/Vídeos"

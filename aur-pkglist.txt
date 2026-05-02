@@ -1,0 +1,8 @@
+dropbox
+localsend-bin
+networkmanager-dmenu-git
+python-imageio-ffmpeg
+python-screeninfo
+waypaper
+yay
+yay-debug

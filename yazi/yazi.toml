@@ -1,0 +1,12 @@
+[plugin]
+previewers = [
+    { name = "*/", run = "folder", sync = true },
+    { mime = "text/*", run = "code" },
+    { mime = "image/*", run = "image" },
+    { mime = "video/*", run = "video" },
+    { mime = "application/pdf", run = "pdf" },
+    { mime = "application/vnd.oasis.opendocument.*", run = "office" },
+    { mime = "application/vnd.ms-*", run = "office" },
+    { mime = "application/vnd.openxmlformats-officedocument.*", run = "office" },
+    { mime = "*", run = "hexyl" },
+]
