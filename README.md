@@ -15,7 +15,7 @@
 
 ## 📸 Screenshot
 
-> *(Agrega tu screenshot aquí — puedes arrastrarlo directamente a GitHub)*
+![Screenshot](hyprshot.png)
 
 ---
 
