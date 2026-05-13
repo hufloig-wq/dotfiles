@@ -1,8 +1,9 @@
 // -*- mode: jsonc -*-
 {
+    "reload_style_on_change": true,
     "layer": "top",
     "position": "top",
-    "height": 38,
+    "height": 34,
     "spacing": 10,
     "fixed-center": true,
     "modules-left": [
@@ -17,13 +18,14 @@
     ],
     "modules-right": [
         "idle_inhibitor",
+        "bluetooth",
         "network",
         "backlight",
         "pulseaudio",
         "hyprland/language",
         "battery",
         "custom/dropbox",
-        "tray",
+        "group/tray-expander",
         "custom/power",
         "clock"
     ],

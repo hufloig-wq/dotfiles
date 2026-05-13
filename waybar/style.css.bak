@@ -10,3 +10,32 @@ window#waybar {
     padding: 0 10px;
     min-width: 60px;
 }
+#custom-dropbox {
+    color: #c0caf5;
+    padding: 0 10px;
+    min-width: 30px;
+}
+
+#custom-dropbox.synced {
+    color: #9ece6a;
+}
+#custom-dropbox.syncing {
+    color: #e0af68;
+}
+#custom-dropbox.connecting {
+    color: #7dcfff;
+}
+#custom-dropbox.stopped {
+    color: #f7768e;
+}
+#custom-dropbox.unknown {
+    color: #bb9af7;
+}
+#custom-power {
+    color: #bb9af7;
+    padding: 0 10px;
+    font-size: 16px;
+}
+#custom-power:hover {
+    color: #cba6f7;
+}

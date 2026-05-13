@@ -9,7 +9,7 @@
     "return-type": "json",
     "interval": 5,
     "tooltip": true,
-    "on-click": "pkill -9 -f dropbox; sleep 1 && dropbox start"
+    "on-click": "systemctl --user start dropbox"
   },
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -48,13 +48,14 @@
     "on-click": "pavucontrol"
   },
   "network": {
-    "format-wifi": "󰤨 ",
-    "format-ethernet": "󰈀 ",
-    "format-linked": "󰈀",
-    "format-disconnected": "󰤭",
-    "tooltip-format-wifi": "󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr}",
-    "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr}",
-    "tooltip-format-disconnected": "󰤭  Sin conexión"
+    "format-wifi": " 󰤨 ",
+    "format-ethernet": " 󰈀 ",
+    "format-linked": " 󰈀 ",
+    "format-disconnected": " 󰤭 ",
+    "tooltip-format-wifi": " 󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr}",
+    "tooltip-format-ethernet": " 󰈀  {ifname}\n󰩟  {ipaddr}",
+    "tooltip-format-disconnected": " 󰤭  Sin conexión",
+    "on-click": "networkmanager_dmenu"
 },
   "cpu": {
     "format": " 󰻠 {usage}%",
@@ -85,11 +86,11 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}  {capacity}%",
-    "format-full": "{icon}  {capacity}%",
-    "format-charging": "󰂄  {capacity}%",
-    "format-plugged": "󰚥  {capacity}%",
-    "format-alt": "{time}  {icon}",
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt": "{time} {icon}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
   "battery#bat2": {
@@ -103,5 +104,10 @@
   "hyprland/window": {
     "max-length": 40,
     "separate-outputs": true
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/power-menu.sh" 
   }
 }

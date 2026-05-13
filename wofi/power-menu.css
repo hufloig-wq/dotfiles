@@ -1,6 +1,6 @@
 * {
     font-family: "ZedMono Nerd Font";
-    font-size: 14px;
+    font-size: 13px;
 }
 
 window {
@@ -10,12 +10,7 @@ window {
 }
 
 #input {
-    background-color: rgba(49, 50, 68, 0.8);
-    color: #c0caf5;
-    border: none;
-    border-radius: 10px;
-    padding: 8px 12px;
-    margin: 8px;
+    display: none
 }
 
 #inner-box {

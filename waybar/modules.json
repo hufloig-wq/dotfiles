@@ -9,25 +9,72 @@
     "return-type": "json",
     "interval": 5,
     "tooltip": true,
-    "on-click": "systemctl --user start dropbox"
+    "on-click": "pkill -9 -f dropbox; sleep 1 && dropbox start"
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/power-menu.sh"
+  },
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
   },
   "hyprland/workspaces": {
+    "on-click": "activate",
     "disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
-    "format": "{name}",
+    "format": "{icon}",
     "format-icons": {
-      "urgent": "󰀦",
-      "active": "󰮯",
-      "default": "󰊠"
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+      "default": "",
+      "urgent": "󰀦"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
     }
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-    "activated": "󰅶 ",
-    "deactivated": "󰅶 "
+      "activated": "󰅶 ",
+      "deactivated": "󰤄 "
     }
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "tooltip-format": "Dispositivos conectados: {num_connections}",
+    "on-click": "blueman-manager"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -45,31 +92,35 @@
       "car": "󰄋",
       "default": ["󰕿", "󰖀", "󰕾"]
     },
-    "on-click": "pavucontrol"
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
   "network": {
-    "format-wifi": " 󰤨 ",
-    "format-ethernet": " 󰈀 ",
-    "format-linked": " 󰈀 ",
-    "format-disconnected": " 󰤭 ",
-    "tooltip-format-wifi": " 󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr}",
-    "tooltip-format-ethernet": " 󰈀  {ifname}\n󰩟  {ipaddr}",
-    "tooltip-format-disconnected": " 󰤭  Sin conexión",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂 ",
+    "format-disconnected": "󰤮 ",
+    "tooltip-format-wifi": "󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr} ",
+    "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr} ",
+    "tooltip-format-disconnected": "󰤭  Sin conexión ",
+    "interval": 3,
     "on-click": "networkmanager_dmenu"
-},
+  },
   "cpu": {
-    "format": " 󰻠 {usage}%",
+    "format": "󰻠 {usage}%",
+    "interval": 5,
     "tooltip": true
   },
   "memory": {
-    "format": " 󰍛 {}%",
+    "format": "󰍛 {}%",
     "tooltip": true
   },
   "temperature": {
     "interval": 10,
     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
     "critical-threshold": 100,
-    "format-critical": "󰸁 {temperatureC}",
+    "format-critical": "󰸁 {temperatureC}°C",
     "format": "󰔏 {temperatureC}°C"
   },
   "hyprland/language": {
@@ -83,31 +134,29 @@
   },
   "battery": {
     "states": {
-      "warning": 30,
-      "critical": 15
+      "warning": 20,
+      "critical": 10
     },
-    "format": "{icon} {capacity}%",
-    "format-full": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰚥 {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
+    "format": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "󰂅",
+    "format-full": "󰂅",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "tooltip-format-discharging": "{power:>1.0f}W ↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W ↑ {capacity}%",
+    "interval": 5
   },
   "clock": {
     "format": "{:%H:%M | %e %b} 󰃰  ",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip": true
   },
   "hyprland/window": {
     "max-length": 40,
     "separate-outputs": true
-  },
-  "custom/power": {
-    "format": "󰐥",
-    "tooltip": false,
-    "on-click": "~/.config/waybar/power-menu.sh" 
   }
 }

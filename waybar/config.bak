@@ -2,28 +2,29 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 42,
-    "spacing": 8,
+    "height": 38,
+    "spacing": 10,
+    "fixed-center": true,
     "modules-left": [
         "custom/arch",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "cpu",
+        "memory",
+        "temperature"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
         "idle_inhibitor",
-        "pulseaudio",
         "network",
-        "cpu",
-        "memory",
-        "temperature",
-        "hyprland/language",
         "backlight",
+        "pulseaudio",
+        "hyprland/language",
         "battery",
-        "battery#bat2",
         "custom/dropbox",
         "tray",
+        "custom/power",
         "clock"
     ],
     "include": [
