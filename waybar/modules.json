@@ -16,6 +16,11 @@
     "tooltip": false,
     "on-click": "~/.config/waybar/power-menu.sh"
   },
+  "custom/theme": {
+    "format": "󰏘",
+    "tooltip-format": "Cambiar tema de Waybar",
+    "on-click": "~/.config/waybar/theme-switcher.sh"
+  },
   "custom/expand-icon": {
     "format": "",
     "tooltip": false
@@ -39,6 +44,7 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
+      "default": "",
       "1": "1",
       "2": "2",
       "3": "3",
@@ -49,7 +55,7 @@
       "8": "8",
       "9": "9",
       "10": "0",
-      "default": "",
+      "active": "󱓻",
       "urgent": "󰀦"
     },
     "persistent-workspaces": {
@@ -63,8 +69,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "󰅶 ",
-      "deactivated": "󰤄 "
+      "activated": "󰖙 ",
+      "deactivated": "󰖔 "
     }
   },
   "bluetooth": {
@@ -97,13 +103,13 @@
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
   "network": {
-    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
-    "format-ethernet": "󰀂 ",
-    "format-disconnected": "󰤮 ",
-    "tooltip-format-wifi": "󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr} ",
-    "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr} ",
-    "tooltip-format-disconnected": "󰤭  Sin conexión ",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr}",
+    "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr}",
+    "tooltip-format-disconnected": "󰤭  Sin conexión",
     "interval": 3,
     "on-click": "networkmanager_dmenu"
   },
@@ -150,7 +156,7 @@
     "interval": 5
   },
   "clock": {
-    "format": "{:%H:%M | %e %b} 󰃰  ",
+    "format": "{:%H:%M | %e %b} 󰃰",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}",
     "tooltip": true

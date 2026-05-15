@@ -1,0 +1,69 @@
+/* ── Catppuccin Mocha ── */
+* {
+    font-family: "ZedMono Nerd Font";
+    font-size: 13px;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.75);
+    color: #cdd6f4;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(17, 17, 27, 0.7);
+    margin: 5px 5px;
+    padding: 0 5px;
+    border-radius: 15px;
+}
+
+#backlight {
+    padding: 0 10px;
+    min-width: 60px;
+}
+
+#custom-dropbox {
+    color: #cdd6f4;
+    padding: 0 10px;
+    min-width: 30px;
+}
+#custom-dropbox.synced { color: #a6e3a1; }
+#custom-dropbox.syncing { color: #f9e2af; }
+#custom-dropbox.connecting { color: #89dceb; }
+#custom-dropbox.stopped { color: #f38ba8; }
+#custom-dropbox.unknown { color: #cba6f7; }
+
+#custom-power {
+    color: #cba6f7;
+    padding: 0 10px;
+    font-size: 16px;
+}
+#custom-power:hover { color: #f5c2e7; }
+
+#custom-theme {
+    color: #89b4fa;
+    padding: 0 10px;
+    font-size: 16px;
+}
+#custom-theme:hover { color: #74c7ec; }
+
+#workspaces { padding: 0 4px; }
+#workspaces button {
+    color: #cdd6f4;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    min-width: 24px;
+    transition: all 0.15s ease;
+}
+#workspaces button:hover { background: rgba(205, 214, 244, 0.15); }
+#workspaces button.active {
+    color: #1e1e2e;
+    background: #cba6f7;
+    border-radius: 8px;
+    padding: 2px 4px;
+    min-width: 24px;
+    font-weight: bold;
+}
