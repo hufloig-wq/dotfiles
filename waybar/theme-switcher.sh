@@ -6,9 +6,9 @@ CURRENT_FILE="/tmp/waybar-current-theme"
 
 mkdir -p "$THEMES_DIR"
 
-THEMES=("tokyo-night" "catppuccin" "gruvbox" "minimal")
-THEME_NAMES=("Tokyo Night" "Catppuccin Mocha" "Gruvbox Dark" "Minimal Dark")
-THEME_ICONS=("🌙" "🌸" "🌿" "⬛")
+THEMES=("tokyo-night" "catppuccin" "gruvbox" "minimal" "athena")
+THEME_NAMES=("Tokyo Night" "Catppuccin Mocha" "Gruvbox Dark" "Minimal Dark" "Athena Material")
+THEME_ICONS=("🌙" "🌸" "🌿" "⬛" "🔵")
 
 if [[ -f "$CURRENT_FILE" ]]; then
     CURRENT=$(cat "$CURRENT_FILE")

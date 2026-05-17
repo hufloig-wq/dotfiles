@@ -1,69 +1,115 @@
-/* ── Catppuccin Mocha ── */
+/* ── Catppuccin Mocha — barra sólida compacta ── */
 * {
     font-family: "ZedMono Nerd Font";
     font-size: 13px;
 }
 
 window#waybar {
-    background: rgba(30, 30, 46, 0.75);
+    background: rgba(30, 30, 46, 0.95);
     color: #cdd6f4;
+    border-bottom: 2px solid #cba6f7;
 }
 
+/* Sin fondos separados por sección */
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(17, 17, 27, 0.7);
-    margin: 5px 5px;
+    background: transparent;
+    margin: 0;
     padding: 0 5px;
-    border-radius: 15px;
+    border-radius: 0;
 }
 
-#backlight {
-    padding: 0 10px;
-    min-width: 60px;
+/* Todos los módulos inline sin fondo */
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#bluetooth,
+#language,
+#idle-inhibitor,
+#custom-arch,
+#custom-dropbox,
+#custom-power,
+#custom-theme,
+#custom-expand-icon,
+#tray {
+    padding: 0 8px;
+    background: transparent;
+    border-radius: 0;
 }
 
-#custom-dropbox {
-    color: #cdd6f4;
-    padding: 0 10px;
-    min-width: 30px;
+#backlight { min-width: 60px; }
+#custom-dropbox { min-width: 30px; }
+
+/* Separadores entre módulos */
+#cpu, #memory, #temperature,
+#network, #pulseaudio, #bluetooth,
+#battery, #backlight {
+    border-right: 1px solid rgba(203, 166, 247, 0.3);
 }
+
+#custom-dropbox { color: #cdd6f4; }
 #custom-dropbox.synced { color: #a6e3a1; }
 #custom-dropbox.syncing { color: #f9e2af; }
 #custom-dropbox.connecting { color: #89dceb; }
 #custom-dropbox.stopped { color: #f38ba8; }
-#custom-dropbox.unknown { color: #cba6f7; }
+#custom-dropbox.unknown { color: #6c7086; }
 
 #custom-power {
-    color: #cba6f7;
+    color: #f38ba8;
     padding: 0 10px;
-    font-size: 16px;
+    font-size: 15px;
 }
 #custom-power:hover { color: #f5c2e7; }
 
 #custom-theme {
     color: #89b4fa;
     padding: 0 10px;
-    font-size: 16px;
+    font-size: 15px;
 }
 #custom-theme:hover { color: #74c7ec; }
 
+#custom-arch { color: #cba6f7; font-size: 16px; }
+
+/* Workspaces inline */
 #workspaces { padding: 0 4px; }
 #workspaces button {
-    color: #cdd6f4;
+    color: #6c7086;
     background: transparent;
     border: none;
-    border-radius: 4px;
-    padding: 2px 6px;
+    border-radius: 0;
+    padding: 0 8px;
     min-width: 24px;
     transition: all 0.15s ease;
+    border-bottom: 2px solid transparent;
 }
-#workspaces button:hover { background: rgba(205, 214, 244, 0.15); }
+#workspaces button:hover {
+    color: #cdd6f4;
+    border-bottom: 2px solid #cba6f7;
+}
 #workspaces button.active {
-    color: #1e1e2e;
-    background: #cba6f7;
-    border-radius: 8px;
-    padding: 2px 4px;
-    min-width: 24px;
+    color: #cba6f7;
+    background: transparent;
+    border-bottom: 2px solid #cba6f7;
     font-weight: bold;
 }
+
+/* Colores por módulo */
+#clock { color: #cba6f7; }
+#cpu { color: #89b4fa; }
+#memory { color: #a6e3a1; }
+#temperature { color: #89dceb; }
+#network { color: #fab387; }
+#pulseaudio { color: #f38ba8; }
+#bluetooth { color: #74c7ec; }
+#backlight { color: #f9e2af; }
+#battery { color: #a6e3a1; }
+#battery.charging { color: #a6e3a1; }
+#battery.warning:not(.charging) { color: #f9e2af; }
+#battery.critical:not(.charging) { color: #f38ba8; }
+#language { color: #cba6f7; }

@@ -1,6 +1,6 @@
 {
   "custom/arch": {
-    "format": " 󰣇",
+    "format": " 󰣇 ",
     "tooltip": true,
     "tooltip-format": "btw"
   },
@@ -103,13 +103,13 @@
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
   "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰀂",
-    "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr}",
-    "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr}",
-    "tooltip-format-disconnected": "󰤭  Sin conexión",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-wifi": "{icon} ",
+    "format-ethernet": "󰀂 ",
+    "format-disconnected": "󰤮 ",
+    "tooltip-format-wifi": "󰤨  {essid}\n󰤌  {signalStrength}%\n󰩟  {ipaddr} ",
+    "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr} ",
+    "tooltip-format-disconnected": "󰤭  Sin conexión ",
     "interval": 3,
     "on-click": "networkmanager_dmenu"
   },
@@ -130,9 +130,9 @@
     "format": "󰔏 {temperatureC}°C"
   },
   "hyprland/language": {
-    "format": "󰌌 {}",
-    "format-en": "EN",
-    "format-es": "ES"
+    "format": "󰌌 {} ",
+    "format-en": "EN ",
+    "format-es": "ES "
   },
   "backlight": {
     "format": "{percent}% {icon}",
@@ -145,20 +145,20 @@
     },
     "format": "{icon}",
     "format-charging": "{icon}",
-    "format-plugged": "󰂅",
-    "format-full": "󰂅",
+    "format-plugged": "󰂅 ",
+    "format-full": "󰂅 ",
     "format-icons": {
-      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "charging": ["󰢜 ", "󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "],
+      "default": ["󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "]
     },
     "tooltip-format-discharging": "{power:>1.0f}W ↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W ↑ {capacity}%",
     "interval": 5
   },
   "clock": {
-    "format": "{:%H:%M | %e %b} 󰃰",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}",
+    "format": "{:%H:%M | %e %b} 󰃰 ",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt> ",
+    "format-alt": "{:%Y-%m-%d} ",
     "tooltip": true
   },
   "hyprland/window": {
