@@ -1,0 +1,10 @@
+-- hyprland.lua — entry point, solo requires
+require("modules.monitors")
+require("modules.appearance")
+require("modules.animations")
+require("modules.layouts")
+require("modules.env")
+require("modules.input")
+require("modules.autostart")
+require("modules.binds")
+require("modules.windowrules")
