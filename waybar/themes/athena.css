@@ -187,3 +187,47 @@ tooltip {
 #tray {
     padding: 4px 10px;
 }
+/* Cambios sobre tu athena.css original: */
+
+#workspaces {
+    margin: 5px 5px 5px 5px;
+    padding: 4px 6px;
+    background-color: @surface_container;
+    border-radius: 999px;   /* era 20px */
+}
+
+#workspaces button {
+    border-radius: 999px;   /* era 16px */
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#bluetooth,
+#language,
+#idle-inhibitor,
+#tray,
+#custom-arch,
+#custom-dropbox,
+#custom-power,
+#custom-theme,
+#custom-expand-icon {
+    margin: 4px 3px;
+    padding: 4px 14px;      /* un poco más de aire horizontal, igual a los otros temas */
+    background-color: @surface_container;
+    border-radius: 999px;   /* era 20px */
+    color: @secondary_fixed_dim;
+}
+
+#window {
+    margin: 4px 3px 4px 10px;   /* margen extra a la derecha del bloque, mismo fix que en los otros temas */
+    padding: 4px 12px;
+    background-color: @surface_container;
+    border-radius: 999px;
+    color: @on_background;
+}

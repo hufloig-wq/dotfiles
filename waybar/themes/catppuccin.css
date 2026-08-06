@@ -1,106 +1,94 @@
-/* ── Catppuccin Mocha — barra sólida compacta ── */
+/* ── Catppuccin Mocha — Pill/Capsule Edition ── */
 * {
     font-family: "ZedMono Nerd Font";
     font-size: 13px;
 }
 
 window#waybar {
-    background: rgba(30, 30, 46, 0.95);
+    background: transparent;
     color: #cdd6f4;
-    border-bottom: 2px solid #cba6f7;
 }
 
-/* Sin fondos separados por sección */
 .modules-left,
 .modules-center,
 .modules-right {
     background: transparent;
-    margin: 0;
-    padding: 0 5px;
-    border-radius: 0;
+    margin: 5px 10px 5px 5px;
+    padding: 0;
 }
 
-/* Todos los módulos inline sin fondo */
-#clock,
-#battery,
+#custom-arch,
+#workspaces,
 #cpu,
 #memory,
 #temperature,
-#backlight,
-#network,
-#pulseaudio,
+#hyprland-window,
+#idle_inhibitor,
 #bluetooth,
+#network,
+#backlight,
+#pulseaudio,
 #language,
-#idle-inhibitor,
-#custom-arch,
+#battery,
 #custom-dropbox,
-#custom-power,
+#tray,
 #custom-theme,
-#custom-expand-icon,
-#tray {
-    padding: 0 8px;
-    background: transparent;
-    border-radius: 0;
+#custom-power,
+#clock {
+    padding: 4px 14px;
+    background: rgba(49, 50, 68, 0.85);
+    border-radius: 999px;
+    margin: 0 3px;
+    border: 1px solid rgba(203, 166, 247, 0.2);
 }
 
-#backlight { min-width: 60px; }
+#backlight { padding: 4px 14px; min-width: 60px; }
 #custom-dropbox { min-width: 30px; }
 
-/* Separadores entre módulos */
-#cpu, #memory, #temperature,
-#network, #pulseaudio, #bluetooth,
-#battery, #backlight {
-    border-right: 1px solid rgba(203, 166, 247, 0.3);
-}
-
 #custom-dropbox { color: #cdd6f4; }
-#custom-dropbox.synced { color: #a6e3a1; }
-#custom-dropbox.syncing { color: #f9e2af; }
-#custom-dropbox.connecting { color: #89dceb; }
-#custom-dropbox.stopped { color: #f38ba8; }
-#custom-dropbox.unknown { color: #6c7086; }
+#custom-dropbox.synced { color: #a6e3a1; border-color: rgba(166, 227, 161, 0.3); }
+#custom-dropbox.syncing { color: #f9e2af; border-color: rgba(249, 226, 175, 0.3); }
+#custom-dropbox.connecting { color: #89dceb; border-color: rgba(137, 220, 235, 0.3); }
+#custom-dropbox.stopped { color: #f38ba8; border-color: rgba(243, 139, 168, 0.3); }
+#custom-dropbox.unknown { color: #6c7086; border-color: rgba(108, 112, 134, 0.3); }
 
 #custom-power {
     color: #f38ba8;
-    padding: 0 10px;
     font-size: 15px;
+    border-color: rgba(243, 139, 168, 0.3);
 }
-#custom-power:hover { color: #f5c2e7; }
+#custom-power:hover { background: rgba(243, 139, 168, 0.15); }
 
 #custom-theme {
     color: #89b4fa;
-    padding: 0 10px;
     font-size: 15px;
+    border-color: rgba(137, 180, 250, 0.3);
 }
-#custom-theme:hover { color: #74c7ec; }
+#custom-theme:hover { background: rgba(137, 180, 250, 0.15); }
 
-#custom-arch { color: #cba6f7; font-size: 16px; }
+#custom-arch { color: #cba6f7; font-size: 16px; border-color: rgba(203, 166, 247, 0.3); }
 
-/* Workspaces inline */
-#workspaces { padding: 0 4px; }
+/* ── Workspaces ── */
+#workspaces { padding: 3px 6px; }
 #workspaces button {
     color: #6c7086;
     background: transparent;
     border: none;
-    border-radius: 0;
-    padding: 0 8px;
-    min-width: 24px;
+    border-radius: 999px;
+    padding: 2px 9px;
+    margin: 0 2px;
+    min-width: 20px;
     transition: all 0.15s ease;
-    border-bottom: 2px solid transparent;
 }
-#workspaces button:hover {
-    color: #cdd6f4;
-    border-bottom: 2px solid #cba6f7;
-}
+#workspaces button:hover { background: rgba(205, 214, 244, 0.1); color: #cdd6f4; }
 #workspaces button.active {
-    color: #cba6f7;
-    background: transparent;
-    border-bottom: 2px solid #cba6f7;
+    color: #1e1e2e;
+    background: #cba6f7;
     font-weight: bold;
 }
 
-/* Colores por módulo */
-#clock { color: #cba6f7; }
+/* ── Colores por módulo ── */
+#clock { color: #cba6f7; font-weight: 600; }
 #cpu { color: #89b4fa; }
 #memory { color: #a6e3a1; }
 #temperature { color: #89dceb; }
@@ -109,7 +97,6 @@ window#waybar {
 #bluetooth { color: #74c7ec; }
 #backlight { color: #f9e2af; }
 #battery { color: #a6e3a1; }
-#battery.charging { color: #a6e3a1; }
-#battery.warning:not(.charging) { color: #f9e2af; }
-#battery.critical:not(.charging) { color: #f38ba8; }
+#battery.warning:not(.charging) { color: #f9e2af; border-color: rgba(249, 226, 175, 0.4); }
+#battery.critical:not(.charging) { color: #f38ba8; border-color: rgba(243, 139, 168, 0.4); }
 #language { color: #cba6f7; }
