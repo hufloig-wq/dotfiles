@@ -2,8 +2,9 @@
 
 THEMES_DIR="$HOME/.config/waybar/themes"
 STYLE="$HOME/.config/waybar/style.css"
-HYPRLAND_CONF="$HOME/.config/hypr/hyprland.conf"
+APPEARANCE_LUA="$HOME/.config/hypr/modules/appearance.lua"
 HYPRLOCK_CONF="$HOME/.config/hypr/hyprlock.conf"
+SDDM_CONF="/usr/share/sddm/themes/sddm-astronaut-theme/Themes/astronaut.conf"
 CURRENT_FILE="/tmp/waybar-current-theme"
 
 mkdir -p "$THEMES_DIR"
@@ -12,13 +13,12 @@ THEMES=("tokyo-night" "catppuccin" "gruvbox" "minimal" "athena")
 THEME_NAMES=("Tokyo Night" "Catppuccin Mocha" "Gruvbox Dark" "Minimal Dark" "Athena Material")
 THEME_ICONS=("🌙" "🌸" "🌿" "⬛" "🔵")
 
-# ── Colores de Hyprland por tema ──────────────────────────────
 declare -A ACTIVE_BORDER=(
-    ["tokyo-night"]="rgba(7287fdee) rgba(1e66f5ee) 45deg"
-    ["catppuccin"]="rgba(cba6f7ee) rgba(89b4faee) 45deg"
-    ["gruvbox"]="rgba(fabd2fee) rgba(fe8019ee) 45deg"
-    ["minimal"]="rgba(ffffffff) rgba(888888ee) 45deg"
-    ["athena"]="rgba(88d1ecee) rgba(b3cad4ee) 45deg"
+    ["tokyo-night"]="rgba(7287fdee) rgba(1e66f5ee) 45"
+    ["catppuccin"]="rgba(cba6f7ee) rgba(89b4faee) 45"
+    ["gruvbox"]="rgba(fabd2fee) rgba(fe8019ee) 45"
+    ["minimal"]="rgba(ffffffff) rgba(888888ee) 45"
+    ["athena"]="rgba(88d1ecee) rgba(b3cad4ee) 45"
 )
 
 declare -A INACTIVE_BORDER=(
@@ -29,7 +29,6 @@ declare -A INACTIVE_BORDER=(
     ["athena"]="rgba(40484caa)"
 )
 
-# ── Colores de Hyprlock por tema ──────────────────────────────
 declare -A LOCK_OUTER_COLOR=(
     ["tokyo-night"]="rgba(122, 162, 247, 1.0)"
     ["catppuccin"]="rgba(203, 166, 247, 1.0)"
@@ -46,7 +45,16 @@ declare -A LOCK_CHECK_COLOR=(
     ["athena"]="rgba(136, 209, 236, 1.0)"
 )
 
-# ── Leer tema actual ──────────────────────────────────────────
+# ── Color de acento SDDM por tema (hex plano, sin alpha) ──────
+declare -A SDDM_ACCENT=(
+    ["tokyo-night"]="#7aa2f7"
+    ["catppuccin"]="#cba6f7"
+    ["gruvbox"]="#fabd2f"
+    ["minimal"]="#ffffff"
+    ["athena"]="#88d1ec"
+)
+
+# ── Leer tema actual ────────────────────────────────────────
 if [[ -f "$CURRENT_FILE" ]]; then
     CURRENT=$(cat "$CURRENT_FILE")
 else
@@ -67,20 +75,24 @@ NEXT_THEME="${THEMES[$NEXT_INDEX]}"
 NEXT_NAME="${THEME_NAMES[$NEXT_INDEX]}"
 NEXT_ICON="${THEME_ICONS[$NEXT_INDEX]}"
 
-# ── Aplicar tema Waybar ───────────────────────────────────────
+# ── Waybar ──────────────────────────────────────────────────
 cp "$THEMES_DIR/$NEXT_THEME.css" "$STYLE"
 
-# ── Aplicar colores Hyprland ──────────────────────────────────
-sed -i "s|col.active_border = .*|col.active_border = ${ACTIVE_BORDER[$NEXT_THEME]}|" "$HYPRLAND_CONF"
-sed -i "s|col.inactive_border = .*|col.inactive_border = ${INACTIVE_BORDER[$NEXT_THEME]}|" "$HYPRLAND_CONF"
+# ── Hyprland (Lua) ──────────────────────────────────────────
+read -r C1 C2 ANGLE <<< "${ACTIVE_BORDER[$NEXT_THEME]}"
+sed -i "s|active_border = .*|active_border = { colors = { \"$C1\", \"$C2\" }, angle = $ANGLE },|" "$APPEARANCE_LUA"
+sed -i "s|inactive_border = .*|inactive_border = \"${INACTIVE_BORDER[$NEXT_THEME]}\",|" "$APPEARANCE_LUA"
 hyprctl reload
 
-# ── Aplicar colores Hyprlock ──────────────────────────────────
+# ── Hyprlock ────────────────────────────────────────────────
 sed -i "s|outer_color = .*|outer_color = ${LOCK_OUTER_COLOR[$NEXT_THEME]}|" "$HYPRLOCK_CONF"
 sed -i "s|check_color = .*|check_color = ${LOCK_CHECK_COLOR[$NEXT_THEME]}|" "$HYPRLOCK_CONF"
+
+# ── SDDM (script dedicado con sudo sin password) ──────────────
+sudo /usr/local/bin/apply-sddm-theme.sh "${SDDM_ACCENT[$NEXT_THEME]}"
 
 # ── Guardar tema actual ───────────────────────────────────────
 echo "$NEXT_THEME" > "$CURRENT_FILE"
 
 # ── Notificar ─────────────────────────────────────────────────
-notify-send -u low "${NEXT_ICON} Tema aplicado" "Waybar + Hyprland: $NEXT_NAME" -t 2000
+notify-send -u low "${NEXT_ICON} Tema aplicado" "Waybar + Hyprland + Hyprlock + SDDM: $NEXT_NAME" -t 2000
