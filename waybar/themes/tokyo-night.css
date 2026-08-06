@@ -1,69 +1,107 @@
-/* ── Tokyo Night ── */
+/* ── Tokyo Night — Pill/Capsule Edition ── */
 * {
     font-family: "ZedMono Nerd Font";
     font-size: 13px;
 }
 
 window#waybar {
-    background: rgba(26, 27, 38, 0.75);
+    background: transparent;
     color: #c0caf5;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(0, 0, 8, 0.7);
-    margin: 5px 5px;
-    padding: 0 5px;
-    border-radius: 20px;
+    background: transparent;
+    margin: 5px 10px 5px 5px;
+    padding: 0;
 }
 
-#backlight {
-    padding: 0 10px;
-    min-width: 60px;
-}
-
-#custom-dropbox {
+/* ── Píldora base para cada módulo ── */
+#custom-arch,
+#workspaces,
+#cpu,
+#memory,
+#temperature,
+#hyprland-window,
+#idle_inhibitor,
+#bluetooth,
+#network,
+#backlight,
+#pulseaudio,
+#language,
+#battery,
+#custom-dropbox,
+#tray,
+#custom-theme,
+#custom-power,
+#clock {
+    background: rgba(36, 40, 59, 0.85);
     color: #c0caf5;
-    padding: 0 10px;
-    min-width: 30px;
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin: 0 3px;
+    border: 1px solid rgba(122, 162, 247, 0.15);
 }
-#custom-dropbox.synced { color: #9ece6a; }
-#custom-dropbox.syncing { color: #e0af68; }
-#custom-dropbox.connecting { color: #7dcfff; }
-#custom-dropbox.stopped { color: #f7768e; }
-#custom-dropbox.unknown { color: #bb9af7; }
 
-#custom-power {
-    color: #bb9af7;
-    padding: 0 10px;
-    font-size: 16px;
+#backlight { padding: 4px 14px; min-width: 60px; }
+
+/* ── Workspaces: cada número su propia mini-píldora ── */
+#workspaces {
+    padding: 3px 6px;
 }
-#custom-power:hover { color: #cba6f7; }
-
-#custom-theme {
-    color: #7aa2f7;
-    padding: 0 10px;
-    font-size: 16px;
-}
-#custom-theme:hover { color: #89ddff; }
-
-#workspaces { padding: 0 4px; }
 #workspaces button {
-    color: #c0caf5;
+    color: #565f89;
     background: transparent;
     border: none;
-    border-radius: 4px;
-    padding: 2px 6px;
-    min-width: 24px;
+    border-radius: 999px;
+    padding: 2px 9px;
+    margin: 0 2px;
+    min-width: 20px;
     transition: all 0.15s ease;
 }
-#workspaces button:hover { background: rgba(192, 202, 245, 0.15); }
+#workspaces button:hover {
+    background: rgba(192, 202, 245, 0.12);
+    color: #c0caf5;
+}
 #workspaces button.active {
     color: #1a1b26;
     background: #7aa2f7;
-    border-radius: 8px;
-    padding: 2px 4px;
-    min-width: 24px;
     font-weight: bold;
 }
+
+/* ── Dropbox: color dinámico según estado ── */
+#custom-dropbox { min-width: 30px; }
+#custom-dropbox.synced { color: #9ece6a; border-color: rgba(158, 206, 106, 0.3); }
+#custom-dropbox.syncing { color: #e0af68; border-color: rgba(224, 175, 104, 0.3); }
+#custom-dropbox.connecting { color: #7dcfff; border-color: rgba(125, 207, 255, 0.3); }
+#custom-dropbox.stopped { color: #f7768e; border-color: rgba(247, 118, 142, 0.3); }
+#custom-dropbox.unknown { color: #bb9af7; border-color: rgba(187, 154, 247, 0.3); }
+
+/* ── Botones de acción con acento propio ── */
+#custom-power {
+    color: #bb9af7;
+    font-size: 15px;
+    border-color: rgba(187, 154, 247, 0.3);
+}
+#custom-power:hover { background: rgba(187, 154, 247, 0.15); }
+
+#custom-theme {
+    color: #7aa2f7;
+    font-size: 15px;
+    border-color: rgba(122, 162, 247, 0.3);
+}
+#custom-theme:hover { background: rgba(122, 162, 247, 0.15); }
+
+#custom-arch {
+    color: #7dcfff;
+    font-size: 16px;
+    border-color: rgba(125, 207, 255, 0.3);
+}
+
+/* ── Batería con estados ── */
+#battery.charging { color: #9ece6a; }
+#battery.warning:not(.charging) { color: #e0af68; border-color: rgba(224, 175, 104, 0.4); }
+#battery.critical:not(.charging) { color: #f7768e; border-color: rgba(247, 118, 142, 0.4); }
+
+#clock { color: #7aa2f7; font-weight: 600; }

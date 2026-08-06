@@ -3,8 +3,8 @@
     "reload_style_on_change": true,
     "layer": "top",
     "position": "top",
-    "height": 38,
-    "spacing": 10,
+    "height": 46,
+    "spacing": 4,
     "fixed-center": true,
     "modules-left": [
         "custom/arch",

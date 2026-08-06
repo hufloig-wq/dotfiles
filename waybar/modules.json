@@ -9,7 +9,7 @@
     "return-type": "json",
     "interval": 5,
     "tooltip": true,
-    "on-click": "pkill -9 -f dropbox; sleep 1 && dropbox start"
+    "on-click": "pkill -9 -f dropbox; sleep 2 && dropbox start &"
   },
   "custom/power": {
     "format": "󰐥",

@@ -1,144 +1,107 @@
-/* ── Minimal Dark ── */
+/* ── Tokyo Night — Pill/Capsule Edition ── */
 * {
     font-family: "ZedMono Nerd Font";
     font-size: 13px;
-    border: none;
-    border-radius: 0;
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-}
-
-tooltip {
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid white;
-    border-radius: 10px;
-}
-
-tooltip label {
-    color: white;
-}
-
-#workspaces button {
     background: transparent;
-    color: #888888;
-    padding: 0 6px;
-    border-radius: 0;
+    color: #c0caf5;
 }
 
-#workspaces button.active {
-    color: white;
+.modules-left,
+.modules-center,
+.modules-right {
     background: transparent;
-    font-weight: bold;
+    margin: 5px 10px 5px 5px;
+    padding: 0;
 }
 
-#workspaces button:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-#clock,
-#battery,
+/* ── Píldora base para cada módulo ── */
+#custom-arch,
+#workspaces,
 #cpu,
 #memory,
 #temperature,
-#backlight,
-#network,
-#pulseaudio,
+#hyprland-window,
+#idle_inhibitor,
 #bluetooth,
+#network,
+#backlight,
+#pulseaudio,
 #language,
-#idle-inhibitor,
-#custom-arch,
+#battery,
 #custom-dropbox,
-#custom-power,
+#tray,
 #custom-theme,
-#custom-expand-icon {
-    padding: 0 10px;
-}
-
-#window {
-    color: #cc6666;
-    margin: 0 6px;
-}
-
-#language {
-    color: cadetblue;
-}
-
-#pulseaudio {
-    color: darkcyan;
-}
-
-#network {
-    color: coral;
-}
-
-#temperature {
-    color: rgb(91, 191, 225);
-}
-
-#backlight {
-    color: rgb(255, 255, 61);
-    min-width: 60px;
-}
-
+#custom-power,
 #clock {
-    color: aqua;
+    background: rgba(36, 40, 59, 0.85);
+    color: #c0caf5;
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin: 0 3px;
+    border: 1px solid rgba(122, 162, 247, 0.15);
 }
 
-#battery {
-    color: rgb(147, 63, 225);
+#backlight { padding: 4px 14px; min-width: 60px; }
+
+/* ── Workspaces: cada número su propia mini-píldora ── */
+#workspaces {
+    padding: 3px 6px;
+}
+#workspaces button {
+    color: #565f89;
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 2px 9px;
+    margin: 0 2px;
+    min-width: 20px;
+    transition: all 0.15s ease;
+}
+#workspaces button:hover {
+    background: rgba(192, 202, 245, 0.12);
+    color: #c0caf5;
+}
+#workspaces button.active {
+    color: #1a1b26;
+    background: #7aa2f7;
+    font-weight: bold;
 }
 
-#battery.charging {
-    color: #26A65B;
-}
+/* ── Dropbox: color dinámico según estado ── */
+#custom-dropbox { min-width: 30px; }
+#custom-dropbox.synced { color: #9ece6a; border-color: rgba(158, 206, 106, 0.3); }
+#custom-dropbox.syncing { color: #e0af68; border-color: rgba(224, 175, 104, 0.3); }
+#custom-dropbox.connecting { color: #7dcfff; border-color: rgba(125, 207, 255, 0.3); }
+#custom-dropbox.stopped { color: #f7768e; border-color: rgba(247, 118, 142, 0.3); }
+#custom-dropbox.unknown { color: #bb9af7; border-color: rgba(187, 154, 247, 0.3); }
 
-#cpu {
-    color: #f0932b;
-}
-
-#memory {
-    color: #6ab04c;
-}
-
-#bluetooth {
-    color: #4fc3f7;
-}
-
-#custom-dropbox {
-    color: white;
-    min-width: 30px;
-}
-#custom-dropbox.synced { color: #26A65B; }
-#custom-dropbox.syncing { color: rgb(255, 255, 61); }
-#custom-dropbox.connecting { color: aqua; }
-#custom-dropbox.stopped { color: #ff0000; }
-#custom-dropbox.unknown { color: #888888; }
-
+/* ── Botones de acción con acento propio ── */
 #custom-power {
-    color: #ff6b6b;
-    font-size: 16px;
+    color: #bb9af7;
+    font-size: 15px;
+    border-color: rgba(187, 154, 247, 0.3);
 }
-#custom-power:hover { color: #ff0000; }
+#custom-power:hover { background: rgba(187, 154, 247, 0.15); }
 
 #custom-theme {
-    color: #f9ca24;
+    color: #7aa2f7;
+    font-size: 15px;
+    border-color: rgba(122, 162, 247, 0.3);
+}
+#custom-theme:hover { background: rgba(122, 162, 247, 0.15); }
+
+#custom-arch {
+    color: #7dcfff;
     font-size: 16px;
-}
-#custom-theme:hover { color: white; }
-
-@keyframes blink {
-    to { color: white; }
+    border-color: rgba(125, 207, 255, 0.3);
 }
 
-#battery.warning:not(.charging),
-#battery.critical:not(.charging) {
-    color: #ff0000;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(2);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
+/* ── Batería con estados ── */
+#battery.charging { color: #9ece6a; }
+#battery.warning:not(.charging) { color: #e0af68; border-color: rgba(224, 175, 104, 0.4); }
+#battery.critical:not(.charging) { color: #f7768e; border-color: rgba(247, 118, 142, 0.4); }
+
+#clock { color: #7aa2f7; font-weight: 600; }
